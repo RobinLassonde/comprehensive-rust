@@ -91,7 +91,9 @@ jobs:
           json.dump(sorted(languages), github_output)
 
   build:
-    runs-on: ubuntu-latest
+    # TODO: Remove ubuntu-24.04 pin once Ubuntu 26.04 TeX Live 2025 issues are
+    # resolved (missing texlive-lang-* packages and LuaLaTeX HarfBuzz crash).
+    runs-on: ubuntu-24.04
     needs:
       - find-languages
     strategy:
